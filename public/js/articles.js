@@ -6,26 +6,28 @@ $("#show-form").on("click", function(event) {
 });
 
 $("#new-article-form").on("submit", function(event) {
-  var title = $("#title").val();
-  var url = $("#url").val();
-  var foundError = false;
+  var errors = validateArticle($("#title").val(), $("#url").val());
+
+  $(".errors").empty();
+  errors.forEach(function(error) {
+    $("#new-article-form").append("<p class='errors'>" + error + "</p>");
+  });
+
+  return errors.length === 0;
+});
+
+function validateArticle(title, url) {
+  var errors = [];
 
   if (title.length === 0) {
-    $("#new-article-form").append("<p class='errors'>Title can't be blank.</p>");
-    foundError = true;
+    errors.push("Title can't be blank.")
   }
 
   if (url.length === 0) {
-    $("#new-article-form").append("<p class='errors'>URL can't be blank.</p>");
-    foundError = true;
+    errors.push("URL can't be blank.")
   } else if (url.indexOf("http") !== 0) {
-    $("#new-article-form").append("<p class='errors'>URL must start with http.</p>");
-    foundError = true;
+    errors.push("URL must start with http.")
   }
 
-  if (foundError) {
-    return false;
-  } else {
-    return true;
-  }
-});
+  return errors;
+}
