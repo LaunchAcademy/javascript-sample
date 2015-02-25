@@ -14,18 +14,18 @@
       <% end %>
     </ul>
 
+    <% if !errors.empty? %>
+      <h3>There were errors with your last submission:</h3>
+
+      <ul class="errors">
+        <% errors.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
     <form id="new-article-form" action="/articles" method="post">
       <h2>New Article</h2>
-
-      <% if !errors.empty? %>
-        <h3>There were errors with your last submission:</h3>
-
-        <ul class="errors">
-          <% errors.each do |error| %>
-            <li><%= error %></li>
-          <% end %>
-        </ul>
-      <% end %>
 
       <div class="field">
         <label for="title">Title:</label>
