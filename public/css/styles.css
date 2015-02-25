@@ -1,0 +1,33 @@
+html {
+  background-color: plum;
+}
+
+body {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  padding: 1em;
+}
+
+ul {
+  list-style: none;
+  font-size: 1.2em;
+}
+
+form {
+  border: 5px inset plum;
+  padding: 1em;
+}
+
+.field {
+  padding: 0.2em 0.6em;
+}
+
+.action {
+  padding: 1em;
+}
+
+.errors {
+  color: red;
+}
