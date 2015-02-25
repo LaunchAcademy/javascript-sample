@@ -9,11 +9,9 @@ post "/articles" do
   errors = input_errors(params[:title], params[:url])
 
   if errors.empty?
-    puts "no errors"
     add_article(params[:title], params[:url])
     redirect "/articles"
   else
-    puts "errors"
     erb :index, locals: { articles: list_articles, errors: errors }
   end
 end
