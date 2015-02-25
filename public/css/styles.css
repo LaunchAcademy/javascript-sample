@@ -31,3 +31,7 @@ form {
 .errors {
   color: red;
 }
+
+#new-article-form {
+  display: none;
+}
